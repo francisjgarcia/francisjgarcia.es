@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	font-size: 15px;
+	font-family: 'Raleway', 'Sansation', Corbel, Verdana, Arial, Sans-Serif;
+	background: #0a0a0a;
+	margin: 0;
+}
+
+canvas {
+  display: flex;
+  vertical-align: center;
+}
+
+.foreground {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+	width: 20% !important;
+	opacity: .2 !important;
+}
+
+@media screen and (max-width: 1024px) {
+	img {
+		width: 35% !important;
+		opacity: .3 !important;
+	}
+}
+@media screen and (max-width: 768px) {
+
+	img {
+		width: 50% !important;
+		opacity: .3 !important;
+	}
+}
+@media screen and (max-width: 480px) {
+	img {
+		width: 70% !important;
+		opacity: .3 !important;
+	}
+}
