@@ -6,5 +6,5 @@ services:
     ports:
         - ${WEB_EXPOSE_PORT}:80
     volumes:
-        - ../public_html:/usr/local/apache2/htdocs
+        - ../public:/usr/local/apache2/htdocs
     restart: always
