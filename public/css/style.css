@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -10,11 +11,13 @@ html, body {
 	font-family: 'Raleway', 'Sansation', Corbel, Verdana, Arial, Sans-Serif;
 	background: #0a0a0a;
 	margin: 0;
+  overflow: hidden;
 }
 
-canvas {
-  display: flex;
-  vertical-align: center;
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .foreground {
@@ -27,38 +30,121 @@ canvas {
 }
 
 .logo {
+  position: relative;
 	display: flex;
-	justify-content: center;
+  justify-content: center;
+	opacity: .35;
 }
 
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-img {
+.logo > img {
 	border-radius: 50%;
-	width: 20% !important;
-	opacity: .2 !important;
+  width: 20%;
+}
+
+@keyframes links {
+  100% { 
+    transform: rotate(-360deg);
+  }
+}
+
+.links {
+  position: absolute;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+  height: 100%;
+  animation-name: links;
+	animation-duration: 15s;
+	animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes link {
+  100% { 
+    transform: rotate(360deg);
+  }
+}
+
+.link {
+  position: absolute;
+  border-radius: 50%;
+  animation-name: link;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.links img {
+  width: 4em !important;
+  height: 4em !important;
+  opacity: .5;
+  transition: all .25s ease-in-out;
+}
+
+.links img:hover {
+  opacity: 1;
+}
+
+.linkedin {
+  margin-top: -400px;
+}
+
+.github {
+  margin-top: 400px;
+}
+
+@media screen and (max-width: 1500px) {
+  .logo > img {
+    width: 25%;
+  }
+
+  .linkedin {
+    margin-top: -350px;
+  }
+
+  .github {
+    margin-top: 350px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-	img {
-		width: 35% !important;
-		opacity: .3 !important;
-	}
+  .logo > img {
+    width: 30%;
+  }
+  
+  .linkedin {
+    margin-top: -320px;
+  }
+  
+  .github {
+    margin-top: 320px;
+  }
 }
-@media screen and (max-width: 768px) {
 
-	img {
-		width: 50% !important;
-		opacity: .3 !important;
-	}
+@media screen and (max-width: 768px) {
+  .logo > img {
+    width: 35%;
+  }
+  
+  .linkedin {
+    margin-top: -270px;
+  }
+  
+  .github {
+    margin-top: 270px;
+  }
 }
+
 @media screen and (max-width: 480px) {
-	img {
-		width: 70% !important;
-		opacity: .3 !important;
-	}
+  .logo > img {
+    width: 40%;
+  }
+
+  .linkedin {
+    margin-top: -225px;
+  }
+  
+  .github {
+    margin-top: 225px;
+  }
 }
