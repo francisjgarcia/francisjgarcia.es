@@ -28,15 +28,13 @@ jobs:
       repo_description: "PR validation for ${{ github.repository }}"
       created_at: ${{ github.event.pull_request.created_at }}
 
-  test:
-    name: Test application
-    needs: build
-    uses: francisjgarcia/actions-templates/.github/workflows/wf-tests.yml@main
-    with:
-      tag_version: ${{ github.sha }}
-      github_repository: ${{ github.repository }}
-      flake8_enabled: false
-      pytest_enabled: false
+  # test:
+  #   name: Test application
+  #   needs: build
+  #   uses: francisjgarcia/actions-templates/.github/workflows/wf-tests.yml@main
+  #   with:
+  #     tag_version: ${{ github.sha }}
+  #     github_repository: ${{ github.repository }}
 
   scan:
     name: Scan vulnerabilities

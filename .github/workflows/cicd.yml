@@ -39,16 +39,14 @@ jobs:
       repo_description: ${{ needs.setup.outputs.repo_description }}
       created_at: ${{ needs.setup.outputs.created_at }}
 
-  tests:
-    name: Test application
-    needs: [setup, build]
-    if: needs.setup.outputs.tag_version != ''
-    uses: francisjgarcia/actions-templates/.github/workflows/wf-tests.yml@main
-    with:
-      tag_version: ${{ needs.setup.outputs.tag_version }}
-      github_repository: ${{ github.repository }}
-      flake8_enabled: false
-      pytest_enabled: false
+  # tests:
+  #   name: Test application
+  #   needs: [setup, build]
+  #   if: needs.setup.outputs.tag_version != ''
+  #   uses: francisjgarcia/actions-templates/.github/workflows/wf-tests.yml@main
+  #   with:
+  #     tag_version: ${{ needs.setup.outputs.tag_version }}
+  #     github_repository: ${{ github.repository }}
 
   scan:
     name: Scan vulnerabilities
@@ -64,7 +62,7 @@ jobs:
 
   push:
     name: Push to registry
-    needs: [setup, tests, scan]
+    needs: [setup, scan]
     if: needs.setup.outputs.tag_version != ''
     uses: francisjgarcia/actions-templates/.github/workflows/wf-push.yml@main
     with:
@@ -73,7 +71,7 @@ jobs:
 
   release:
     name: Tag and release
-    needs: [setup, tests, scan, push]
+    needs: [setup, scan, push]
     if: needs.setup.outputs.tag_version != ''
     permissions:
       contents: write
@@ -90,7 +88,7 @@ jobs:
 
   deploy:
     name: Deploy to server
-    needs: [setup, tests, scan, push, release]
+    needs: [setup, scan, push, release]
     if: needs.setup.outputs.tag_version != ''
     uses: francisjgarcia/actions-templates/.github/workflows/wf-deploy.yml@main
     with:
@@ -99,12 +97,11 @@ jobs:
       containers: |
         [
           {
-            "name": "francisjgarcia",
+            "name": "francisjgarcia.es",
             "image": "ghcr.io/${{ github.repository }}:${{ needs.setup.outputs.tag_version }}",
-            "network": "proxy",
             "healthcheck_url": "http://localhost:3000/",
-            "memory_limit": "256m",
-            "memory_reservation": "128m",
+            "memory_limit": "128m",
+            "memory_reservation": "64m",
             "env_vars": {
               "NODE_ENV": "production",
               "PORT": "3000"

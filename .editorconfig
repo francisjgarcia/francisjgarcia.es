@@ -1,37 +1,33 @@
 root = true
 
-# ── Todos los ficheros ────────────────────────────────────────────────
 [*]
 charset                  = utf-8
 end_of_line              = lf
 insert_final_newline     = true
 trim_trailing_whitespace = true
 
-# ── Python ────────────────────────────────────────────────────────────
-[*.py]
+[*.{js,mjs,cjs}]
 indent_style = space
-indent_size  = 4
-max_line_length = 88        # Límite de Ruff/Black
+indent_size  = 2
 
-# ── YAML (docker-compose, GitHub Actions, etc.) ───────────────────────
 [*.{yml,yaml}]
 indent_style = space
 indent_size  = 2
 
-# ── JSON y TOML (pyproject.toml, package.json) ────────────────────────
-[*.{json,toml}]
+[*.{json,jsonc}]
 indent_style = space
 indent_size  = 2
 
-# ── Ficheros de entorno y config plana ───────────────────────────────
-[*.{env,cfg,ini,txt}]
+[*.css]
 indent_style = space
-indent_size  = 4
+indent_size  = 2
 
-# ── Makefiles (obligatoriamente tabs) ────────────────────────────────
-[Makefile]
-indent_style = tab
+[*.html]
+indent_style = space
+indent_size  = 2
 
-# ── Markdown (los espacios al final son saltos de línea intencionales)
 [*.md]
 trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
