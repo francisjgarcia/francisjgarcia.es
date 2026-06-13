@@ -1,66 +1,52 @@
 # francisjgarcia.es
 
-Personal landing page — built with vanilla HTML, CSS & JS.  
-Served via Node.js (Express) in a lightweight Docker container.
+Personal landing page — built with Node.js + Express, containerised with Docker.
 
-## Quick Start
+## Stack
+
+- **Backend**: Node.js, Express 5, compression
+- **Frontend**: Vanilla JS, CSS custom properties, JetBrains Mono + Inter
+- **Infrastructure**: Docker multi-stage build, Docker Compose (dev mode with read-only bind mounts and hot reload via `--watch`)
+- **Deployment**: Express serves static files from `public/`, SPA-style catch-all route
+
+## Project Structure
+
+```
+├── docker/
+│   ├── Dockerfile          # Multi-stage: production + development targets
+│   └── compose.yml         # Dev Compose config (port 3000, read-only volumes)
+├── public/
+│   ├── css/style.css       # All styles (minified)
+│   ├── js/main.js          # All JS — i18n, terminal emulator, typewriter, scroll
+│   ├── images/             # Avatar in webp + jpg, 3 responsive sizes
+│   ├── index.html          # Single-page HTML
+│   └── robots.txt
+├── src/
+│   └── server.js           # Express server
+├── .editorconfig
+├── .gitignore
+├── .dockerignore
+├── LICENSE
+├── package.json
+└── package-lock.json
+```
+
+## Development
 
 ```bash
 docker compose -f docker/compose.yml up -d
+# → http://localhost:3000
 ```
 
-Open http://localhost:3000
+Changes to `src/` or `public/` are reflected immediately (bind mounts + Node `--watch`).
 
-Con hot reload: monta `src/` y `public/` como volúmenes y Node usa `--watch` para recargar al editar.
-
-## Build & Run (manual)
+## Production
 
 ```bash
-docker build -t francisjgarcia -f docker/Dockerfile .
-docker run -d -p 3000:3000 francisjgarcia
+docker build -f docker/Dockerfile --target production -t francisjgarcia .
+docker run -p 3000:3000 francisjgarcia
 ```
 
-## Run without Docker
+## License
 
-```bash
-npm install
-npm start
-```
-
-## Images
-
-Place your images in `public/images/`:
-
-| File | Purpose |
-|------|---------|
-| `logo.jpg` | Profile picture (square, 512×512+) |
-
-## Tech Stack
-
-- Vanilla HTML/CSS/JS (no frameworks)
-- Node.js + Express (static serving, compression, security headers)
-- Docker + Compose
-- Google Fonts (Inter + JetBrains Mono)
-
-## Deploy
-
-```bash
-docker compose -f docker/compose.yml up -d --build
-```
-
-## Structure
-
-```
-.
-├── src/
-│   └── server.js            # Node.js entry point
-├── public/
-│   ├── index.html           # Landing page
-│   └── images/
-│       └── logo.jpg         # Profile picture
-├── docker/
-│   ├── Dockerfile           # Multi-stage (deps / production / development)
-│   └── compose.yml          # Local dev con hot reload
-├── package.json             # Dependencies
-└── README.md
-```
+MIT

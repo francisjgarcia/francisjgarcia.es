@@ -1,12 +1,39 @@
-# Docker
-nginx/
+# Dependencies
+node_modules/
 
-# OS
+# Editor and OS files
 .DS_Store
 Thumbs.db
-
-# IDE
+Desktop.ini
 .vscode/
 .idea/
+*.iml
 *.swp
 *.swo
+
+# Build output
+build/
+dist/
+out/
+
+# Environment
+.env
+*.local
+
+# Temporary
+*.tmp
+*.bak
+*.log
+*.cache
+
+# Secrets
+*.pem
+*.key
+*.crt
+
+# Archives
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z

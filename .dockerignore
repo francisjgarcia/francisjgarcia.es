@@ -1,4 +1,41 @@
-.git
+# Dependencies
+node_modules/
+
+# Git
+.git/
 .gitignore
-README.md
-*.md
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+*.local
+
+# Temporary
+*.tmp
+*.bak
+*.log
+*.cache
+
+# Secrets
+*.pem
+*.key
+*.crt
+
+# Archives
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# Docker
+docker/compose.yml
+docker/Dockerfile
