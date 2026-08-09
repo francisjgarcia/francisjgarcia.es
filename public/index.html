@@ -1,37 +1,341 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="theme-color" content="#0a0a0a">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-	<title>Francis J. García</title>
-	<link rel="icon" sizes="256x256" href="images/favicon.jpg">
-	<link rel="stylesheet" href="css/style.min.css">
-	<link rel="stylesheet" href="css/animate.min.css">
-	<link rel="stylesheet" href="css/aos.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francis J. García — DevOps Engineer</title>
+  <meta name="description" content="DevOps Engineer especializado en Kubernetes, cloud nativa, GitOps y automatización. Infraestructura como código con Terraform y GCP.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="canonical" href="https://www.francisjgarcia.es/">
+  <meta property="og:title" content="Francis J. García — DevOps Engineer">
+  <meta property="og:description" content="DevOps Engineer especializado en Kubernetes, cloud nativa, GitOps y automatización.">
+  <meta property="og:url" content="https://www.francisjgarcia.es/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.francisjgarcia.es/images/logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Francis J. García — DevOps Engineer">
+  <meta name="twitter:description" content="DevOps Engineer especializado en Kubernetes, cloud nativa, GitOps y automatización.">
+  <meta name="twitter:image" content="https://www.francisjgarcia.es/images/logo.jpg">
+  <meta name="theme-color" content="#0a0a0f">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Francis J. García","url":"https://www.francisjgarcia.es","image":"https://www.francisjgarcia.es/images/logo.jpg","jobTitle":"DevOps Engineer","sameAs":["https://github.com/francisjgarcia","https://www.linkedin.com/in/francisjgarcia"]}</script>
 </head>
 <body>
-	<div id="particles-js"></div>
 
-	<div class="foreground">
-		<div class="logo">
-			<img data-aos="zoom-in" data-aos-easing="ease-in-out" data-aos-offset="200" data-aos-delay="100" data-aos-duration="1300" src="images/logo.jpg">	
-			<div class="links">
-				<a href="https://www.linkedin.com/in/francisjgarcia" target="_blank" class="link linkedin">
-					<img src="images/linkedin.png">
-				</a>
-				<a href="https://github.com/francisjgarcia" target="_blank" class="link github">
-					<img src="images/github.png">
-				</a>
-			</div>
-		</div>
-	</div>
+  <div id="grid-bg"></div>
+  <div id="scanline"></div>
 
-	<script src="js/particles.min.js"></script>
-	<script src="js/particles-js.js"></script>
-	<script src="js/aos.min.js"></script>
-	<script>
-		AOS.init();
-	</script>
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <div class="logo">francis@devops<span>:~$ </span><input type="text" id="term-input" class="term-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal" /></div>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav-about">Sobre mí</a></li>
+        <li><a href="#stack" data-i18n="nav-stack">Stack</a></li>
+        <li><a href="#contact" data-i18n="nav-contact">Contacto</a></li>
+        <li>
+          <button id="lang-toggle" class="lang-btn" aria-label="Switch language"><span id="lang-label">EN</span></button>
+        </li>
+      </ul>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="term-output" class="term-output-panel" style="display:none;">
+    <div class="term-output-inner" id="term-output-inner"></div>
+  </div>
+
+  <div class="mobile-overlay">
+    <a href="#about" data-i18n="nav-about">Sobre mí</a>
+    <a href="#stack" data-i18n="nav-stack">Stack</a>
+    <a href="#contact" data-i18n="nav-contact">Contacto</a>
+    <button id="lang-toggle-mobile" class="lang-btn-mobile" data-lang="es">🇪🇸 ES</button>
+  </div>
+
+  <main>
+  <!-- Hero -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="gradient">Francis J. García</span>
+        </h1>
+        <div class="hero-sub">
+          <span id="typewriter"></span><span class="cursor">▍</span>
+        </div>
+        <p class="hero-desc" data-i18n="hero-desc">
+          DevOps Engineer de Málaga. Automatizo lo aburrido para centrarme
+          en lo que importa. Kubernetes, cloud, GitOps, y seguridad por defecto.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span data-i18n="hero-contact-btn">Contactar</span>
+          </a>
+          <a href="#stack" class="btn btn-outline"><span data-i18n="hero-stack-btn">Ver stack</span></a>
+        </div>
+        <div class="hero-social">
+          <a href="https://github.com/francisjgarcia" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/francisjgarcia" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:contacto@francisjgarcia.es" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glow"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="avatar-wrapper">
+          <picture>
+            <source srcset="images/logo-320.webp 320w, images/logo-480.webp 480w, images/logo-640.webp 640w, images/logo.webp 900w" type="image/webp" sizes="(max-width: 768px) 200px, 320px">
+            <source srcset="images/logo-320.jpg 320w, images/logo-480.jpg 480w, images/logo-640.jpg 640w, images/logo.jpg 900w" sizes="(max-width: 768px) 200px, 320px">
+            <img src="images/logo.jpg" alt="Francis J. García" fetchpriority="high" width="320" height="320">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section id="stats">
+    <div class="container">
+      <h2 class="sr-only">Stats</h2>
+      <div class="stats-grid">
+        <div class="stat-item reveal"><div class="stat-num" id="stat-years">10+</div><div class="stat-label" data-i18n="stat-years">Años en IT</div></div>
+        <div class="stat-item reveal"><div class="stat-num">24</div><div class="stat-label" data-i18n="stat-repos">Repositorios públicos</div></div>
+        <div class="stat-item reveal"><div class="stat-num">GCP</div><div class="stat-label" data-i18n="stat-cloud">Cloud principal</div></div>
+        <div class="stat-item reveal"><div class="stat-num">♾️</div><div class="stat-label" data-i18n="stat-auto">Automatización</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label reveal" data-i18n="about-label">// sobre mí</div>
+      <h2 class="section-title reveal"><span data-i18n="about-title">Automatizo, contengo y asegu</span><span class="highlight" data-i18n="about-title-end">ro.</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p data-i18n="about-p1">
+            Soy <strong>DevOps Engineer</strong> y mi relación con la informática empezó
+            aproximadamente a los 12 años — webs básicas, arreglar hardware, formatear PCs al vecindario,
+            trastear con routers y servidores caseros. Esa curiosidad nunca se fue.
+          </p>
+          <p data-i18n="about-p2">
+            Hoy diseño y mantengo infraestructura cloud-native:
+            <strong>Kubernetes</strong>, pipelines <strong>GitOps</strong>,
+            <strong>IaC</strong> con Terraform, y todo lo que pueda automatizarse.
+            Mi playground principal es <strong>GCP</strong> + <strong>K8s</strong>.
+          </p>
+          <p data-i18n="about-p3">
+            También sigo muy de cerca el mundo de la <strong>IA</strong> — LLMs,
+            AI tooling, y cómo está redefiniendo el infraengineering.
+            Uso <strong>GitHub Copilot</strong> y <strong>Claude</strong> a diario.
+          </p>
+          <p data-i18n="about-p4">
+            Filosofía: <strong>automatiza pronto, itera rápido, monitoriza todo,
+            y asegúralo al máximo</strong>. Cloudflare, zero trust, WAF,
+            hardened configs — por defecto.
+          </p>
+        </div>
+        <div class="terminal-card reveal">
+          <div class="term-header">
+            <span class="term-dot red"></span>
+            <span class="term-dot yellow"></span>
+            <span class="term-dot green"></span>
+            <span class="term-title">francis@devops:~$</span>
+          </div>
+          <div class="term-body">
+            <div><span class="prompt">➜</span> <span class="cmd">cat about.md</span></div>
+            <div><span class="comment"># Francis J. García</span></div>
+            <div><span class="prompt">></span> <span class="highlight-text">DevOps Engineer</span></div>
+            <div><span class="prompt">></span> <span class="highlight-text">Cloud-native & Containers</span></div>
+            <div><span class="prompt">></span> <span class="highlight-text" data-i18n="term-about-sub3">Trasteando de por vida 🔧</span></div>
+            <div>&nbsp;</div>
+            <div><span class="prompt">➜</span> <span class="cmd">echo $LOCATION</span></div>
+            <div><span class="output" data-i18n="term-location">Málaga, España 🇪🇸</span></div>
+            <div>&nbsp;</div>
+            <div><span class="prompt">➜</span> <span class="cmd">echo $MOTTO</span></div>
+            <div><span class="output" data-i18n="term-motto">"Automatiza lo aburrido para centrarte en lo que importa."</span></div>
+            <div>&nbsp;</div>
+            <div><span class="prompt">➜</span> <span class="cmd">systemctl status passion --no-pager</span></div>
+            <div><span style="color:var(--accent2)">● active (running)</span><span data-i18n="term-since"> — desde ~2006</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="stack">
+    <div class="container">
+      <div class="section-label reveal" data-i18n="stack-label">// stack técnico</div>
+      <h2 class="section-title reveal"><span data-i18n="stack-title">Infraestructura como código, </span><span class="highlight" data-i18n="stack-title-end">siempre.</span></h2>
+      <div class="tech-categories">
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat1">☸️ Infraestructura y Orquestación</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">Kubernetes</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Helm</span>
+            <span class="tech-badge">Terraform</span>
+            <span class="tech-badge">Ansible</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat2">⚡ CI/CD</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">GitHub Actions</span>
+            <span class="tech-badge">CircleCI</span>
+            <span class="tech-badge">Jenkins</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat3">☁️ Cloud</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">Google Cloud Platform</span>
+            <span class="tech-badge">AWS</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat4">📊 Monitorización y Observabilidad</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">Grafana</span>
+            <span class="tech-badge">Elastic Stack</span>
+            <span class="tech-badge">Datadog</span>
+            <span class="tech-badge">Dynatrace</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat5">💻 Scripting, Herramientas y SO</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">Linux</span>
+            <span class="tech-badge">Bash</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Go</span>
+            <span class="tech-badge">Git</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat6">🔒 Seguridad y Redes</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">Cloudflare</span>
+            <span class="tech-badge">Kong</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat7">🗄️ Bases de datos</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">MariaDB</span>
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">MongoDB</span>
+            <span class="tech-badge">Redis</span>
+            <span class="tech-badge">SQLite</span>
+            <span class="tech-badge">MSSQL</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat8">🤖 Herramientas de IA</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">GitHub Copilot</span>
+            <span class="tech-badge">Claude</span>
+            <span class="tech-badge">OpenAI</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat9">🗂️ Control de Versiones y Colaboración</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">GitHub</span>
+            <span class="tech-badge">Bitbucket</span>
+            <span class="tech-badge">Jira</span>
+            <span class="tech-badge">Confluence</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 data-i18n="stack-cat10">🏗️ Clásicos y Base</h3>
+          <div class="tech-badges">
+            <span class="tech-badge">Nginx</span>
+            <span class="tech-badge">Apache</span>
+            <span class="tech-badge">VMware</span>
+            <span class="tech-badge">Proxmox</span>
+            <span class="tech-badge">Zabbix</span>
+            <span class="tech-badge">Nagios</span>
+            <span class="tech-badge">Windows Server</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <div class="section-label reveal" data-i18n="contact-label">// contacto</div>
+        <h2 class="section-title reveal" data-i18n="contact-title">¿Hablamos? 🚀</h2>
+        <p class="hero-desc" style="margin:0 auto 16px; text-align:center;" data-i18n="contact-desc">
+          Si quieres colaborar, tienes un proyecto entre manos o simplemente
+          charlar sobre infraestructura, IA o automatización — estoy aquí.
+        </p>
+        <div class="contact-links reveal">
+          <a href="https://github.com/francisjgarcia" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/francisjgarcia" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:contacto@francisjgarcia.es">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contacto@francisjgarcia.es
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© Francis J. García</p>
+      <p class="footer-line" data-i18n="footer-line">Hecho con ⎈, mucho ☕, y cero bugs gracias a Claude (mentira)</p>
+    </div>
+  </footer>
+
+  <button id="scroll-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
