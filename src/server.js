@@ -29,6 +29,17 @@ const staticOpts = {
 };
 app.use(express.static(publicPath, staticOpts));
 
+app.get(/^\/api\/uptime\/(.+)/, async (req, res) => {
+  try {
+    const url = 'https://status.francisjgarcia.es/api/' + req.params[0];
+    const response = await fetch(url);
+    const data = await response.json();
+    res.json(data);
+  } catch (err) {
+    res.status(502).json({ error: 'Failed to fetch status' });
+  }
+});
+
 app.get('/{*path}', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'), {
     headers: { 'Cache-Control': 'no-cache, must-revalidate' }
