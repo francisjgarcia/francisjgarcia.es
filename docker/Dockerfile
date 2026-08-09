@@ -1,7 +1,16 @@
 # ============================================================
+# Stage 0: Base image with latest Alpine security patches
+# ============================================================
+FROM node:26.7.0-alpine3.24 AS base
+
+# Pull in patched apk packages (e.g. libssl3/libcrypto3 CVEs) not yet
+# baked into the upstream node:alpine tag
+RUN apk update && apk upgrade --no-cache
+
+# ============================================================
 # Stage 1: Install dependencies
 # ============================================================
-FROM node:26.3.0-alpine3.24 AS deps
+FROM base AS deps
 
 # Build arg: 'development' installs devDeps, 'production' skips them
 ARG NODE_ENV=production
@@ -19,7 +28,7 @@ RUN if [ "$NODE_ENV" = "development" ]; then \
 # ============================================================
 # Stage 2: Production image (default target)
 # ============================================================
-FROM node:26.3.0-alpine3.24 AS production
+FROM base AS production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -52,7 +61,7 @@ CMD ["node", "src/server.js"]
 # ============================================================
 # Stage 3: Development image (hot reload with --watch)
 # ============================================================
-FROM node:26.3.0-alpine3.24 AS development
+FROM base AS development
 
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
