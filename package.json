@@ -2,9 +2,10 @@
   "name": "francisjgarcia",
   "version": "1.0.0",
   "description": "Francis J. García — DevOps Engineer landing page",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/server.js",
+    "test": "node --test"
   },
   "dependencies": {
     "compression": "^1.8.1",

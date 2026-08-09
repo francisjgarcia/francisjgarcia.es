@@ -39,18 +39,19 @@ jobs:
       repo_description: ${{ needs.setup.outputs.repo_description }}
       created_at: ${{ needs.setup.outputs.created_at }}
 
-  # tests:
-  #   name: Test application
-  #   needs: [setup, build]
-  #   if: needs.setup.outputs.tag_version != ''
-  #   uses: francisjgarcia/actions-templates/.github/workflows/wf-tests.yml@main
-  #   with:
-  #     tag_version: ${{ needs.setup.outputs.tag_version }}
-  #     github_repository: ${{ github.repository }}
+  tests:
+    name: Test application
+    needs: [setup, build]
+    if: needs.setup.outputs.tag_version != ''
+    uses: francisjgarcia/actions-templates/.github/workflows/wf-tests.yml@main
+    with:
+      tag_version: ${{ needs.setup.outputs.tag_version }}
+      github_repository: ${{ github.repository }}
+      test_command: npm ci && npm test
 
   scan:
     name: Scan vulnerabilities
-    needs: [setup, build]
+    needs: [setup, build, tests]
     if: needs.setup.outputs.tag_version != ''
     uses: francisjgarcia/actions-templates/.github/workflows/wf-scan.yml@main
     with:
