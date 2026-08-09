@@ -103,6 +103,10 @@ jobs:
             "healthcheck_url": "http://localhost:3000/",
             "memory_limit": "128m",
             "memory_reservation": "64m",
+            "networks": [
+              "proxy_internal_network",
+              "proxy_external_network"
+            ],
             "env_vars": {
               "NODE_ENV": "production",
               "PORT": "3000"
