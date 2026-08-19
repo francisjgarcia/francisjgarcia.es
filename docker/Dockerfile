@@ -5,7 +5,7 @@ FROM node:26.7.0-alpine3.24 AS base
 
 # Pull in patched apk packages (e.g. libssl3/libcrypto3 CVEs) not yet
 # baked into the upstream node:alpine tag
-RUN apk update && apk upgrade --no-cache
+RUN apk update && apk upgrade --no-cache && apk add --no-cache curl
 
 # ============================================================
 # Stage 1: Install dependencies
