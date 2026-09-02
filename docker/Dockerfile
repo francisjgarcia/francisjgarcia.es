@@ -1,7 +1,7 @@
 # ============================================================
 # Stage 0: Base image with latest Alpine security patches
 # ============================================================
-FROM node:26.7.0-alpine3.24 AS base
+FROM node:26.8.1-alpine3.24 AS base
 
 # Pull in patched apk packages (e.g. libssl3/libcrypto3 CVEs) not yet
 # baked into the upstream node:alpine tag
